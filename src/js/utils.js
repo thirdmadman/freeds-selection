@@ -51,7 +51,14 @@ export const processJson = (jsonData) => {
 
   const data = jsonData.list.map((el) => {
     if (el.configuration && el.configuration !== '') {
-      const res = { ...parseConfig(el.configuration), id: el.id, srcConfig: el.configuration };
+      const res = {
+        ...parseConfig(el.configuration),
+        id: el.id,
+        srcConfig: el.configuration,
+        barcode: el.barcode,
+        rack: el.rack.name,
+        unit: el.unit,
+      };
       return res;
     }
     return null;
